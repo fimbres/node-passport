@@ -2,6 +2,7 @@ import express from "express";
 import morgan from "morgan";
 import cors from "cors";
 import authRouter from "./routes/auth.routes";
+import privateRouter from "./routes/private.routes";
 import passportMiddleware from "./middlewares/passport";
 import passport from "passport";
 
@@ -17,5 +18,6 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
 app.use(authRouter);
+app.use(privateRouter);
 
 export default app;
