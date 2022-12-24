@@ -6,15 +6,16 @@ const dbOptions: ConnectOptions = {
     pass: config.DB.PASSWORD,
 };
 
+mongoose.set('strictQuery', false);
 mongoose.connect(config.DB.URI, dbOptions);
 
 const connection = mongoose.connection;
 
 connection.once('open', () => {
-    console.log('database connected!');
+    console.log('Database connected!');
 })
 
 connection.on('error', () => {
-    console.log('database does not connected!');
+    console.log('Database was not connected!');
     process.exit(0);
 })
