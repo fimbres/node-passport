@@ -1,12 +1,12 @@
-import mongoose from "mongoose";
+import mongoose, { ConnectOptions } from "mongoose";
 import config from "./config";
 
-const dbOptions = {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+const dbOptions: ConnectOptions = {
+    user: config.DB.USER,
+    pass: config.DB.PASSWORD,
 };
 
-mongoose.connect(config.DB.URI);
+mongoose.connect(config.DB.URI, dbOptions);
 
 const connection = mongoose.connection;
 
