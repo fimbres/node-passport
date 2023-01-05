@@ -7,7 +7,7 @@ const dbOptions: ConnectOptions = {
 };
 
 mongoose.set('strictQuery', false);
-mongoose.connect(config.DB.URI, dbOptions);
+mongoose.connect(config.DB.URI);
 
 const connection = mongoose.connection;
 
